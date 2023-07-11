@@ -33,6 +33,7 @@
   --grey-suva-grey: rgba(142, 142, 142, 1);
   --grey-black-russian: rgba(12, 12, 14, 1);
   --white: rgba(255, 255, 255, 1);
+  --yellow-barley-corn: rgba(187, 148, 95, 1);
   --gradient-black-russian: linear-gradient(
     180deg,
     rgba(12, 12, 14, 1) 0%,
@@ -149,6 +150,7 @@ figure {
   position: relative;
   display: inline-block;
   padding: 10px;
+  font-family: "Inter";
   font-size: 20px;
   font-weight: 400;
   line-height: 50px;
@@ -228,4 +230,83 @@ figure {
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--white);
+}
+
+/* ABOUT */
+
+.about__container {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.about__title {
+  position: relative;
+  text-align: center;
+  font-family: "Forum";
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  color: var(--grey-black-russian);
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+}
+
+.about__title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 50px;
+  height: 1px;
+  transform: translateX(-50%);
+  background-color: var(--grey-black-russian);
+}
+
+.about__text {
+  text-align: center;
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  color: var(--black);
+  margin-bottom: 20px;
+}
+
+.about-slider__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.about-slider__item {
+  width: 450px;
+  height: 560px;
+}
+
+.about-slider__controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-slider__control {
+  width: 26px;
+  height: 26px;
+  background-color: var(--grey-black-russian);
+  cursor: pointer;
+  border: 5px solid var(--white);
+  border-radius: 50%;
+  transition: transform 0.3s ease 0s;
+}
+
+.about-slider__control_current {
+  background-color: var(--yellow-barley-corn);
+}
+
+.about-slider__control:hover:not(:is(.about-slider__control_current)) {
+  transform: scale(1.2);
 }
