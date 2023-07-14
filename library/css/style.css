@@ -560,3 +560,62 @@ figure {
   transform: translateY(50%);
   background-color: var(--yellow-barley-corn);
 }
+
+/* CONTACTS */
+
+.contacts__content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.contacts-data__title {
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  color: var(--black);
+}
+
+.contacts-data__text {
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  color: var(--black);
+}
+
+.contacts-data__phones-title {
+  margin-bottom: 40px;
+}
+
+.contacts-data__phones {
+  margin-bottom: 40px;
+}
+
+.contacts-data__phone:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.contacts-data__phone-link:hover {
+  color: var(--yellow-barley-corn);
+  transition: color 0.3s ease 0s;
+}
+
+.contacts-data__personals-title {
+  margin-bottom: 20px;
+}
+
+.contacts-data__personal-link:hover {
+  color: var(--yellow-barley-corn);
+  transition: color 0.3s ease 0s;
+}
+
+.map {
+  max-width: 696px;
+  max-height: 414px;
+}
