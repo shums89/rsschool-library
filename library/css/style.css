@@ -488,3 +488,75 @@ figure {
   bottom: -1px;
   right: -40px;
 }
+
+/* COFEE SHOP */
+
+.coffeeshop__text {
+  margin-bottom: 40px;
+  text-align: center;
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: var(--black);
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.menu-category__title {
+  margin-bottom: 40px;
+  font-family: "Forum";
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: var(--yellow-barley-corn);
+  text-align-last: left;
+}
+
+.product:not(:last-child) .product__title,
+.product:not(:last-child) .product__price {
+  border-bottom: 40px solid transparent;
+}
+
+.product__title {
+  padding-right: 60px;
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: var(--black);
+}
+
+.menu-category_right .product__title {
+  text-align: right;
+}
+
+.product__price {
+  position: relative;
+  padding-left: 160px;
+  font-family: "Forum";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: var(--black);
+  text-align: right;
+}
+
+.product__price:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100px;
+  height: 1px;
+  transform: translateY(50%);
+  background-color: var(--yellow-barley-corn);
+}
