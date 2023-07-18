@@ -702,6 +702,12 @@ figure {
   letter-spacing: 1px;
   color: var(--grey-black-russian);
   text-align: center;
+  cursor: pointer;
+}
+
+.findcard-form__btn:hover {
+  border-color: var(--yellow-barley-corn);
+  background-color: var(--yellow-barley-corn);
 }
 
 .librarycard__right-column {
@@ -742,6 +748,12 @@ figure {
   letter-spacing: 1px;
   color: var(--grey-black-russian);
   text-align: center;
+  cursor: pointer;
+}
+
+.getcard__btns button:hover {
+  border-color: var(--yellow-barley-corn);
+  background-color: var(--yellow-barley-corn);
 }
 
 /* FOOTER */
