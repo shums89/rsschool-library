@@ -40,6 +40,7 @@
     rgba(12, 12, 14, 1) 0.01%,
     rgba(18, 18, 21, 0.1) 100%
   );
+  --box-chadow: rgba(0, 0, 0, 0.25);
 }
 
 html {
@@ -63,7 +64,8 @@ h1,
 h2,
 h3,
 h4,
-p {
+p,
+figure {
   margin: 0;
 }
 
@@ -86,8 +88,8 @@ img {
   object-fit: contain;
 }
 
-figure {
-  margin: 0;
+button {
+  padding: 0;
 }
 
 [class*="__container"] {
@@ -134,7 +136,7 @@ figure {
   align-items: center;
   color: var(--white);
   background-color: var(--grey-black-russian);
-  gap: 40px;
+  gap: 30px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -224,7 +226,7 @@ figure {
   text-transform: capitalize;
   color: var(--grey-black-russian);
   margin-bottom: 40px;
-  padding-bottom: 20px;
+  padding-bottom: 21px;
 }
 
 .section-title::after {
@@ -259,7 +261,7 @@ figure {
   display: inline-block;
   min-width: 600px;
   min-height: 220px;
-  margin-top: 255px;
+  margin-top: 220px;
   padding: 35px 40px;
   background-color: var(--black);
 }
@@ -293,7 +295,7 @@ figure {
   justify-content: space-between;
   align-items: center;
   gap: 25px;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
 }
 
 .about-slider__item {
@@ -327,12 +329,16 @@ figure {
 
 /* FAVORITES */
 
+.favorites__container {
+  padding-top: 15px;
+}
+
 .favorites__subtitle {
   font-family: "Inter";
   font-size: 20px;
   font-weight: 700;
   color: var(--black);
-  margin-bottom: 40px;
+  margin-bottom: 42px;
 }
 
 .tabs__header {
@@ -343,7 +349,7 @@ figure {
 
 .tabs-header__label {
   position: relative;
-  padding: 5px 5px 5px 42px;
+  padding: 5px 5px 5px 40px;
   font-family: "Inter";
   font-size: 20px;
   font-weight: 400;
@@ -355,7 +361,7 @@ figure {
   content: "";
   position: absolute;
   top: 50%;
-  left: 5px;
+  left: 0;
   width: 17px;
   height: 17px;
   padding: 5px;
@@ -369,7 +375,7 @@ figure {
   content: "";
   position: absolute;
   top: 50%;
-  left: 10px;
+  left: 5px;
   width: 7px;
   height: 7px;
   transform: translateY(-50%);
@@ -516,16 +522,20 @@ figure {
   line-height: 40px;
   letter-spacing: 2px;
   color: var(--yellow-barley-corn);
-  text-align-last: left;
+  text-align: left;
+}
+
+.menu-category_right .menu-category__title {
+  text-align: right;
 }
 
 .product:not(:last-child) .product__title,
 .product:not(:last-child) .product__price {
-  border-bottom: 40px solid transparent;
+  border-bottom: 35px solid transparent;
 }
 
 .product__title {
-  padding-right: 60px;
+  padding-right: 54px;
   font-family: "Inter";
   font-size: 20px;
   font-weight: 400;
@@ -545,7 +555,6 @@ figure {
   font-size: 20px;
   font-weight: 400;
   line-height: 40px;
-  letter-spacing: 2px;
   color: var(--black);
   text-align: right;
 }
@@ -610,6 +619,10 @@ figure {
   margin-bottom: 20px;
 }
 
+.contacts-data__personal-link {
+  letter-spacing: 3px;
+}
+
 .contacts-data__personal-link:hover {
   color: var(--yellow-barley-corn);
   transition: color 0.3s ease 0s;
@@ -644,8 +657,9 @@ figure {
 }
 
 .findcard-form {
-  padding: 20px 20px 30px 20px;
+  padding: 17px 17px 27px 17px;
   border: 3px solid var(--yellow-barley-corn);
+  box-shadow: 0px 4px 4px 0px var(--box-chadow);
 }
 
 .findcard-form__content {
@@ -673,7 +687,7 @@ figure {
   font-weight: 400;
   line-height: 50px;
   letter-spacing: 0.6px;
-  color: var(--black);
+  color: var(--yellow-barley-corn);
 }
 
 .findcard-form__content input::placeholder {
@@ -691,7 +705,7 @@ figure {
 }
 
 .findcard-form__btn {
-  padding: 10px 40px;
+  padding: 9px 38px;
   border-radius: 2px;
   border: 1px solid var(--grey-black-russian);
   background-color: transparent;
@@ -727,7 +741,7 @@ figure {
 .getcard__text {
   display: inline-block;
   max-width: 456px;
-  margin-bottom: 35px;
+  margin-bottom: 34px;
   font-family: "Inter";
   font-size: 20px;
   font-weight: 400;
@@ -736,8 +750,16 @@ figure {
   color: var(--black);
 }
 
+.getcard__btns {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 20px;
+}
+
 .getcard__btns button {
-  padding: 9px 16px;
+  width: 75px;
+  height: 30px;
   border-radius: 2px;
   border: 1px solid var(--grey-black-russian);
   background-color: transparent;
@@ -803,7 +825,7 @@ figure {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-bottom: 38px;
+  margin-bottom: 36px;
 }
 
 .socials__item:hover {
@@ -836,6 +858,10 @@ figure {
   align-items: center;
 }
 
+.footer__footer * {
+  flex: 0 0 33%;
+}
+
 .footer__year {
   font-family: "Inter";
   font-size: 20px;
@@ -843,6 +869,14 @@ figure {
   line-height: 20px;
   letter-spacing: 2px;
   color: var(--white);
+}
+
+.footer__rsschool-wrapper {
+  text-align: center;
+}
+
+.footer__github-wrapper {
+  text-align: right;
 }
 
 .footer__rsschool-link,
