@@ -323,6 +323,10 @@ button {
   background-color: var(--yellow-barley-corn);
 }
 
+.about-slider__control:hover:is(.about-slider__control_current) {
+  cursor: default;
+}
+
 .about-slider__control:hover:not(:is(.about-slider__control_current)) {
   transform: scale(1.2);
 }
@@ -381,6 +385,20 @@ button {
   transform: translateY(-50%);
   background-color: var(--black);
   border-radius: 50%;
+}
+
+.tabs-header__input:checked + .tabs-header__label:hover,
+.tabs-header__input:checked + .tabs-header__label:hover:before,
+.tabs-header__input:checked + .tabs-header__label:hover:after {
+  cursor: default;
+}
+
+.tabs-header__input:not(:checked) + .tabs-header__label:hover {
+  color: var(--yellow-barley-corn);
+}
+
+.tabs-header__input:not(:checked) + .tabs-header__label:hover:before {
+  border-color: var(--yellow-barley-corn);
 }
 
 .season__books {
