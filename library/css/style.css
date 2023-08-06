@@ -463,6 +463,10 @@ button {
   cursor: pointer;
 }
 
+.tabs-header__input:checked + .tabs-header__label {
+  font-weight: 700;
+}
+
 .tabs-header__input:checked + .tabs-header__label:after {
   content: "";
   position: absolute;
@@ -1074,5 +1078,9 @@ button {
 
   .about-slider__controls .about-slider__control {
     display: block;
+  }
+
+  .season__books {
+    justify-content: center;
   }
 }
