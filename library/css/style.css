@@ -686,7 +686,7 @@ button {
 .contacts__content {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
+  gap: 100px 8px;
 }
 
 .contacts-data__title {
@@ -731,6 +731,7 @@ button {
 }
 
 .contacts-data__personal-link {
+  font-weight: 700;
   letter-spacing: 3px;
 }
 
@@ -742,6 +743,7 @@ button {
 .map {
   max-width: 696px;
   max-height: 414px;
+  margin: 0;
 }
 
 /* LIBRARYCARD */
@@ -1087,5 +1089,13 @@ button {
 
   .menu-category_right {
     margin-left: auto;
+  }
+
+  .contacts__content {
+    grid-template-columns: 1fr;
+  }
+
+  .map {
+    margin: 0 auto;
   }
 }
