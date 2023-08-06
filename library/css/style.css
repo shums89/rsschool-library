@@ -299,7 +299,7 @@ button {
 .welcome__container {
   height: 600px;
   padding: 0;
-  background: url("../assets/img/welcome.jpg") 0 0 no-repeat;
+  background: url("../assets/img/welcome.jpeg") center / cover no-repeat;
 }
 
 .welcome__overlay {
