@@ -339,6 +339,10 @@ button {
   margin-bottom: 20px;
 }
 
+.about-slider {
+  position: relative;
+}
+
 .about-slider__list {
   display: flex;
   justify-content: space-between;
@@ -350,6 +354,40 @@ button {
 .about-slider__item {
   width: 450px;
   height: 560px;
+}
+
+.about-slider__item:nth-child(n + 4) {
+  display: none;
+}
+
+.about-slider__switches {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: none;
+}
+
+.about-slider__switch {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: url("../assets/img/angle.svg") center no-repeat;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.about-slider__switch_next {
+  transform: rotate(-180deg);
+}
+
+.about-slider__switch_prev:hover {
+  transform: scale(1.2);
+}
+
+.about-slider__switch_next:hover {
+  transform: rotate(-180deg) scale(1.2);
 }
 
 .about-slider__controls {
@@ -368,11 +406,12 @@ button {
   transition: transform 0.3s ease 0s;
 }
 
-.about-slider__control_current {
-  background-color: var(--yellow-barley-corn);
+.about-slider__control:nth-child(n + 4) {
+  display: none;
 }
 
-.about-slider__control:hover:is(.about-slider__control_current) {
+.about-slider__control_current {
+  background-color: var(--yellow-barley-corn);
   cursor: default;
 }
 
@@ -1017,5 +1056,23 @@ button {
   .header__profile {
     margin-left: auto;
     z-index: 10;
+  }
+
+  .about-slider__list {
+    justify-content: center;
+  }
+
+  .about-slider__item:not(:first-child) {
+    display: none;
+  }
+
+  .about-slider__switches {
+    display: flex;
+    justify-content: center;
+    column-gap: 566px;
+  }
+
+  .about-slider__controls .about-slider__control {
+    display: block;
   }
 }
