@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
   <title>Library</title>
+  <script src="js/index.js" defer></script>
+  <script src="js/menu.js" defer></script>
+  <script src="js/scroll.js" defer></script>
 </head>
 
 <body class="body">
@@ -16,7 +19,8 @@
       <a class="header__logo-link" href="#">
         <h1 class="header__title">Brooklyn Public Library</h1>
       </a>
-      <nav class="header__nav header-nav">
+      <nav class="header__nav header-nav header-nav_opened header-nav_nojs">
+        <button class="header-nav__toggle" type="button"></button>
         <ul class="header-nav__list">
           <li class="header-nav__item"><a class="header-nav__link" href="#about">About</a></li>
           <li class="header-nav__item"><a class="header-nav__link" href="#favorites">Favorites</a></li>
@@ -402,7 +406,7 @@
       </div>
     </div>
   </footer>
-  <script src="js/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/seamless-scroll-polyfill@latest/lib/bundle.min.js"></script>
 </body>
 
 </html>
