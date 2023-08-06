@@ -621,6 +621,7 @@ button {
 .menu {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 40px;
 }
 
@@ -1082,5 +1083,9 @@ button {
 
   .season__books {
     justify-content: center;
+  }
+
+  .menu-category_right {
+    margin-left: auto;
   }
 }
