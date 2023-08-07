@@ -434,8 +434,9 @@ button {
 }
 
 .tabs__header {
-  display: flex;
-  gap: 85px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 700px;
   margin-bottom: 40px;
 }
 
