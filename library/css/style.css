@@ -187,7 +187,7 @@ button {
   content: "";
   position: absolute;
   top: 11px;
-  left: 0;
+  left: -6px;
   width: 45px;
   height: 2px;
   background-color: var(--white);
@@ -1048,7 +1048,7 @@ button {
     top: 0;
     width: 332px;
     height: 570px;
-    padding: 100px 87px;
+    padding: 90px 87px;
     background-color: var(--black);
     transition: all 0.5s ease 0s;
   }
@@ -1059,7 +1059,7 @@ button {
   }
 
   .header-nav_opened .header-nav__list {
-    right: 0;
+    right: 13px;
     opacity: 1;
   }
 
