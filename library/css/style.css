@@ -137,6 +137,7 @@ button {
   color: var(--white);
   background-color: var(--grey-black-russian);
   gap: 30px;
+  min-height: 90px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -434,9 +435,8 @@ button {
 }
 
 .tabs__header {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  max-width: 700px;
+  display: flex;
+  gap: 82px;
   margin-bottom: 40px;
 }
 
@@ -733,7 +733,7 @@ button {
 
 .contacts-data__personal-link {
   font-weight: 700;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
 }
 
 .contacts-data__personal-link:hover {
@@ -974,7 +974,7 @@ button {
   align-items: center;
 }
 
-.footer__footer * {
+.footer__footer > * {
   flex: 0 0 33%;
 }
 
@@ -1086,6 +1086,10 @@ button {
     display: block;
   }
 
+  .about-slider__list {
+    margin-bottom: 20px;
+  }
+
   .season__books {
     justify-content: center;
   }
@@ -1110,11 +1114,20 @@ button {
     text-align: center;
   }
 
+  .getcard__title {
+    margin-bottom: 40px;
+  }
+
   .getcard__text {
     max-width: 600px;
+    margin-bottom: 40px;
   }
 
   .getcard__btns {
     justify-content: center;
+  }
+
+  .footer__footer > * {
+    flex-basis: auto;
   }
 }
