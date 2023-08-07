@@ -751,6 +751,8 @@ button {
 .librarycard__content {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .findcard__title {
@@ -1097,5 +1099,21 @@ button {
 
   .map {
     margin: 0 auto;
+  }
+
+  .librarycard__content {
+    justify-content: center;
+  }
+
+  .librarycard__right-column {
+    text-align: center;
+  }
+
+  .getcard__text {
+    max-width: 600px;
+  }
+
+  .getcard__btns {
+    justify-content: center;
   }
 }
