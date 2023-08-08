@@ -1045,24 +1045,23 @@ button {
   .header-nav__list {
     flex-direction: column;
     justify-content: space-between;
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 13px;
     width: 332px;
     height: 570px;
     padding: 90px 87px;
     background-color: var(--black);
-    transition: all 0.5s ease 0s;
-    overflow-x: hidden;
+    transition: all 1s ease 0s;
   }
 
   .header-nav_closed .header-nav__list {
-    right: -100%;
+    top: -100%;
     opacity: 0;
   }
 
   .header-nav_opened .header-nav__list {
-    right: 13px;
+    top: 0;
     opacity: 1;
   }
 
