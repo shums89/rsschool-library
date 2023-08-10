@@ -137,8 +137,13 @@ button {
   color: var(--white);
   background-color: var(--grey-black-russian);
   gap: 30px;
+  min-height: 90px;
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+.header__logo-link {
+  flex: 0 0 auto;
 }
 
 .header__title {
@@ -149,15 +154,60 @@ button {
   letter-spacing: 0.6px;
 }
 
-.header__nav {
+.header-nav {
   margin-left: auto;
+}
+
+.header-nav__toggle {
+  display: none;
+  position: relative;
+  width: 45px;
+  height: 22px;
+  margin-left: 10px;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.header-nav_closed .header-nav__toggle:before,
+.header-nav_closed .header-nav__toggle:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45px;
+  height: 2px;
+  background-color: var(--white);
+  box-shadow: 0 10px 0 0 var(--white), 0 20px 0 0 var(--white);
+  transition: all 0.3s ease 0s;
+}
+
+.header-nav_opened .header-nav__toggle:before,
+.header-nav_opened .header-nav__toggle:after {
+  content: "";
+  position: absolute;
+  top: 11px;
+  left: -6px;
+  width: 45px;
+  height: 2px;
+  background-color: var(--white);
+  transition: all 0.3s ease 0s;
+}
+
+.header-nav_opened .header-nav__toggle:before {
+  transform: rotate(45deg);
+}
+
+.header-nav_opened .header-nav__toggle:after {
+  transform: rotate(-45deg);
 }
 
 .header-nav__list {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  gap: 10px;
+  flex-wrap: wrap;
+  column-gap: 10px;
 }
 
 .header-nav__link {
@@ -187,6 +237,7 @@ button {
 }
 
 .header__profile {
+  flex: 0 0 auto;
   background-color: var(--black);
   border: none;
   transition: transform 0.3s ease 0s;
@@ -247,10 +298,9 @@ button {
 }
 
 .welcome__container {
-  width: 1440px;
   height: 600px;
   padding: 0;
-  background: url("../assets/img/welcome.jpg") 0 0 no-repeat;
+  background: url("../assets/img/welcome.jpeg") center / cover no-repeat;
 }
 
 .welcome__overlay {
@@ -290,6 +340,10 @@ button {
   margin-bottom: 20px;
 }
 
+.about-slider {
+  position: relative;
+}
+
 .about-slider__list {
   display: flex;
   justify-content: space-between;
@@ -301,6 +355,40 @@ button {
 .about-slider__item {
   width: 450px;
   height: 560px;
+}
+
+.about-slider__item:nth-child(n + 4) {
+  display: none;
+}
+
+.about-slider__switches {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: none;
+}
+
+.about-slider__switch {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: url("../assets/img/angle.svg") center no-repeat;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.about-slider__switch_next {
+  transform: rotate(-180deg);
+}
+
+.about-slider__switch_prev:hover {
+  transform: scale(1.2);
+}
+
+.about-slider__switch_next:hover {
+  transform: rotate(-180deg) scale(1.2);
 }
 
 .about-slider__controls {
@@ -319,11 +407,12 @@ button {
   transition: transform 0.3s ease 0s;
 }
 
-.about-slider__control_current {
-  background-color: var(--yellow-barley-corn);
+.about-slider__control:nth-child(n + 4) {
+  display: none;
 }
 
-.about-slider__control:hover:is(.about-slider__control_current) {
+.about-slider__control_current {
+  background-color: var(--yellow-barley-corn);
   cursor: default;
 }
 
@@ -347,7 +436,8 @@ button {
 
 .tabs__header {
   display: flex;
-  gap: 85px;
+  flex-wrap: wrap;
+  gap: 10px 82px;
   margin-bottom: 40px;
 }
 
@@ -373,6 +463,10 @@ button {
   border: 2px solid var(--black);
   border-radius: 50%;
   cursor: pointer;
+}
+
+.tabs-header__input:checked + .tabs-header__label {
+  font-weight: 700;
 }
 
 .tabs-header__input:checked + .tabs-header__label:after {
@@ -529,6 +623,7 @@ button {
 .menu {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 40px;
 }
 
@@ -593,7 +688,7 @@ button {
 .contacts__content {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
+  gap: 100px 8px;
 }
 
 .contacts-data__title {
@@ -638,7 +733,8 @@ button {
 }
 
 .contacts-data__personal-link {
-  letter-spacing: 3px;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 
 .contacts-data__personal-link:hover {
@@ -649,6 +745,7 @@ button {
 .map {
   max-width: 696px;
   max-height: 414px;
+  margin: 0;
 }
 
 /* LIBRARYCARD */
@@ -656,6 +753,8 @@ button {
 .librarycard__content {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .findcard__title {
@@ -876,7 +975,7 @@ button {
   align-items: center;
 }
 
-.footer__footer * {
+.footer__footer > * {
   flex: 0 0 33%;
 }
 
@@ -924,4 +1023,113 @@ button {
 .footer__github-link:hover:after {
   width: 90%;
   transition: width 0.5s ease 0s;
+}
+
+/* ADAPTIVE */
+
+@media (max-width: 1024px) {
+  .header__nav {
+    order: 2;
+    margin-left: 0;
+  }
+
+  .header-nav_nojs .header-nav__toggle {
+    display: none;
+  }
+
+  .header-nav__toggle {
+    display: block;
+    z-index: 10;
+  }
+
+  .header-nav__list {
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    right: 13px;
+    width: 332px;
+    height: 570px;
+    padding: 90px 87px;
+    background-color: var(--black);
+    transition: all 1s ease 0s;
+  }
+
+  .header-nav_closed .header-nav__list {
+    top: -100%;
+    opacity: 0;
+  }
+
+  .header-nav_opened .header-nav__list {
+    top: 0;
+    opacity: 1;
+  }
+
+  .header__profile {
+    margin-left: auto;
+    z-index: 10;
+  }
+
+  .about-slider__list {
+    justify-content: center;
+  }
+
+  .about-slider__item:not(:first-child) {
+    display: none;
+  }
+
+  .about-slider__switches {
+    display: flex;
+    justify-content: center;
+    column-gap: 566px;
+  }
+
+  .about-slider__controls .about-slider__control {
+    display: block;
+  }
+
+  .about-slider__list {
+    margin-bottom: 20px;
+  }
+
+  .season__books {
+    justify-content: center;
+  }
+
+  .menu-category_right {
+    margin-left: auto;
+  }
+
+  .contacts__content {
+    grid-template-columns: 1fr;
+  }
+
+  .map {
+    margin: 0 auto;
+  }
+
+  .librarycard__content {
+    justify-content: center;
+  }
+
+  .librarycard__right-column {
+    text-align: center;
+  }
+
+  .getcard__title {
+    margin-bottom: 40px;
+  }
+
+  .getcard__text {
+    max-width: 600px;
+    margin-bottom: 40px;
+  }
+
+  .getcard__btns {
+    justify-content: center;
+  }
+
+  .footer__footer > * {
+    flex-basis: auto;
+  }
 }
