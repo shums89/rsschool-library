@@ -1,15 +1,15 @@
-console.log("САМООЦЕНКА ЧАСТЬ 2");
+console.log("САМООЦЕНКА ЧАСТЬ 2 (50/50)");
 
 console.log("1. Вёрстка соответствует макету. Ширина экрана 768px (26/26)");
 console.log("   - блок <header> (2)");
-console.log("   - секция Welcome +(2)");
-console.log("   - секция About +(2)");
-console.log("   - секция About +(2)");
-console.log("   - секция Favorites +(4)");
-console.log("   - секция CoffeShop +(4)");
-console.log("   - секция Contacts +(4)");
-console.log("   - секция LibraryCard +(4)");
-console.log("   - блок <footer> +(2)");
+console.log("   - секция Welcome (2)");
+console.log("   - секция About (2)");
+console.log("   - в секции About под картинкой 5 точек навигации (2)");
+console.log("   - секция Favorites (4)");
+console.log("   - секция CoffeShop (4)");
+console.log("   - секция Contacts (4)");
+console.log("   - секция LibraryCard (4)");
+console.log("   - блок <footer> (2)");
 console.log("2. Ни на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется (12/12)");
 console.log("   - нет полосы прокрутки при ширине страницы от 1440рх до 640рх (4)");
 console.log("   - элементы не выходят за пределы окна браузера при ширине страницы от 1440рх до 640рх (4)");
@@ -21,7 +21,7 @@ console.log("   - ссылки в адаптивном меню работают
 console.log("   - размеры открытого бургер-меню соответствуют макету, так же открытое бургер-меню проверяется на PixelPerfect (2)");
 
 console.log("\n");
-console.log("САМООЦЕНКА ЧАСТЬ 1");
+console.log("САМООЦЕНКА ЧАСТЬ 1 (100/100)");
 console.log("1. Вёрстка валидная (сервис https://validator.w3.org) (10/10)");
 console.log("2. Вёрстка семантическая (16/16)");
 console.log("   - <header>, <main>, <footer> (2)");
