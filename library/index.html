@@ -8,6 +8,10 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
   <title>Library</title>
+  <script src="js/index.js" defer></script>
+  <script src="js/menu.js" defer></script>
+  <script src="js/seamless-scroll-polyfill_bundle.min.js" defer></script>
+  <script src="js/scroll.js" defer></script>
 </head>
 
 <body class="body">
@@ -16,7 +20,8 @@
       <a class="header__logo-link" href="#">
         <h1 class="header__title">Brooklyn Public Library</h1>
       </a>
-      <nav class="header__nav header-nav">
+      <nav class="header__nav header-nav header-nav_opened header-nav_nojs">
+        <button class="header-nav__toggle" type="button"></button>
         <ul class="header-nav__list">
           <li class="header-nav__item"><a class="header-nav__link" href="#about">About</a></li>
           <li class="header-nav__item"><a class="header-nav__link" href="#favorites">Favorites</a></li>
@@ -55,9 +60,21 @@
             <li class="about-slider__item">
               <img src="assets/img/image_3.jpg" alt="Bookshelves">
             </li>
+            <li class="about-slider__item">
+              <img src="assets/img/image_4.jpg" alt="Bookshelves with stairs">
+            </li>
+            <li class="about-slider__item">
+              <img src="assets/img/image_5.jpg" alt="Antique columns">
+            </li>
           </ul>
+          <div class="about-slider__switches">
+            <button class="about-slider__switch about-slider__switch_prev" type="button"></button>
+            <button class="about-slider__switch about-slider__switch_next" type="button"></button>
+          </div>
           <div class="about-slider__controls">
             <button class="about-slider__control about-slider__control_current" type="button"></button>
+            <button class="about-slider__control" type="button"></button>
+            <button class="about-slider__control" type="button"></button>
             <button class="about-slider__control" type="button"></button>
             <button class="about-slider__control" type="button"></button>
           </div>
@@ -241,7 +258,7 @@
     <section class="coffeeshop" id="coffeeshop">
       <div class="coffeeshop__container section-container">
         <h2 class="coffeeshop__title section-title">Coffee shop</h2>
-        <p class="coffeeshop__text">In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation. You can get a favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can try desserts from bakery.</p>
+        <p class="coffeeshop__text">In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation. You can get a favorite book and read in coffee shop. our barista to cook you best coffee, and also you can try desserts from bakery.</p>
         <ul class="coffeeshop__menu menu">
           <li class="menu__category menu-category">
             <table>
@@ -402,7 +419,6 @@
       </div>
     </div>
   </footer>
-  <script src="js/index.js"></script>
 </body>
 
 </html>
