@@ -574,12 +574,14 @@ button {
 }
 
 .book__btn {
-  display: inline-block;
-  padding: 8px 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75px;
+  height: 30px;
   border: 1px solid var(--grey-black-russian);
   border-radius: 2px;
   background-color: transparent;
-  text-align: center;
   font-family: "Inter";
   font-size: 10px;
   font-weight: 700;
@@ -1047,8 +1049,8 @@ button {
     justify-content: space-between;
     position: absolute;
     top: 0;
-    right: 13px;
-    width: 332px;
+    right: 0;
+    width: 345px;
     height: 570px;
     padding: 90px 87px;
     background-color: var(--black);
