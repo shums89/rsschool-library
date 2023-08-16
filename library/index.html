@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
   <title>Library</title>
-  <script src="js/self-assessment.js" defer></script>
+  <!-- <script src="js/self-assessment.js" defer></script> -->
   <script src="js/menu.js" defer></script>
   <script src="js/seamless-scroll-polyfill_bundle.min.js" defer></script>
   <script src="js/scroll.js" defer></script>
@@ -51,25 +51,27 @@
         <h2 class="about__title section-title">About</h2>
         <p class="about__text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
         <div class="about__slider about-slider">
-          <ul class="about-slider__list">
-            <li class="about-slider__item">
-              <img src="assets/img/image_1.jpg" alt="Woman in front of bookshelf">
-            </li>
-            <li class="about-slider__item">
-              <img src="assets/img/image_2.jpg" alt="Celebrity figurines">
-            </li>
-            <li class="about-slider__item">
-              <img src="assets/img/image_3.jpg" alt="Bookshelves">
-            </li>
-            <li class="about-slider__item">
-              <img src="assets/img/image_4.jpg" alt="Bookshelves with stairs">
-            </li>
-            <li class="about-slider__item">
-              <img src="assets/img/image_5.jpg" alt="Antique columns">
-            </li>
-          </ul>
+          <div class="about-slider__wrapper">
+            <ul class="about-slider__list">
+              <li class="about-slider__item">
+                <img src="assets/img/image_1.jpg" alt="Woman in front of bookshelf">
+              </li>
+              <li class="about-slider__item">
+                <img src="assets/img/image_2.jpg" alt="Celebrity figurines">
+              </li>
+              <li class="about-slider__item">
+                <img src="assets/img/image_3.jpg" alt="Bookshelves">
+              </li>
+              <li class="about-slider__item">
+                <img src="assets/img/image_4.jpg" alt="Bookshelves with stairs">
+              </li>
+              <li class="about-slider__item">
+                <img src="assets/img/image_5.jpg" alt="Antique columns">
+              </li>
+            </ul>
+          </div>
           <div class="about-slider__switches">
-            <button class="about-slider__switch about-slider__switch_prev" type="button"></button>
+            <button class="about-slider__switch about-slider__switch_prev" type="button" disabled></button>
             <button class="about-slider__switch about-slider__switch_next" type="button"></button>
           </div>
           <div class="about-slider__controls">
