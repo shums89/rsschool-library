@@ -1140,3 +1140,30 @@ button {
     flex-basis: auto;
   }
 }
+
+.fade-in {
+  animation: fadeIn ease 1s;
+}
+
+.fade-out {
+  animation: fadeOut ease 1s;
+  /* animation-delay: 2s; */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
