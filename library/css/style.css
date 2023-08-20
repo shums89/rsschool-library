@@ -237,20 +237,79 @@ button {
 }
 
 .header__profile {
+  position: relative;
   flex: 0 0 auto;
-  background-color: var(--black);
-  border: none;
-  transition: transform 0.3s ease 0s;
 }
 
-.header__profile:hover {
+.header-profile__btn {
+  border: none;
+  transition: transform 0.3s ease 0s;
+  background-color: transparent;
+}
+
+.header-profile__btn:hover {
   cursor: pointer;
   transform: scale(1.2);
 }
 
-.header__profile img {
+.header-profile__btn img {
   width: 28px;
   height: 28px;
+}
+
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  width: 80px;
+  height: 115px;
+  right: 0;
+  padding: 5px 4px;
+  text-align: center;
+  color: var(--black);
+  background-color: var(--white);
+}
+
+.profile-dropdown_show {
+  display: block;
+}
+
+.profile-dropdown__title {
+  position: relative;
+  font-family: "Inter";
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--black);
+  margin-bottom: 20px;
+}
+
+.profile-dropdown__title::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 1px;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--yellow-barley-corn);
+}
+
+.profile-dropdown__content {
+  display: none;
+  font-family: "Inter";
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--black);
+  text-align: center;
+}
+
+.profile-dropdown__content li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.profile-dropdown__content_show {
+  display: block;
 }
 
 /* MAIN */
@@ -1076,7 +1135,6 @@ button {
 
   .header__profile {
     margin-left: auto;
-    z-index: 10;
   }
 
   .about-slider__wrapper {
@@ -1147,7 +1205,6 @@ button {
 
 .fade-out {
   animation: fadeOut ease 1s;
-  /* animation-delay: 2s; */
 }
 
 @keyframes fadeIn {

@@ -31,9 +31,22 @@
           <li class="header-nav__item"><a class="header-nav__link" href="#librarycard">Library Card</a></li>
         </ul>
       </nav>
-      <button class="header__profile" type="button">
-        <img src="assets/img/profile.svg" alt="">
-      </button>
+      <div class="header__profile header-profile">
+        <button class="header-profile__btn" type="button">
+          <img src="assets/img/profile.svg" alt="">
+        </button>
+        <div class="header-profile__dropdown profile-dropdown">
+          <h3 class="profile-dropdown__title">Profile</h3>
+          <ul class="profile-dropdown__content profile-dropdown__content_no-auth">
+            <li><a class="profile-dropdown__login" href="#">Log In</a></li>
+            <li><a class="profile-dropdown__register" href="#">Register</a></li>
+          </ul>
+          <ul class="profile-dropdown__content profile-dropdown__content_with-auth">
+            <li><a class="profile-dropdown__my-profile" href="#">My profile</a></li>
+            <li><a class="profile-dropdown__logout" href="#">Log Out</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </header>
   <main class="main">
@@ -362,7 +375,7 @@
                 <input class="findcard-form__name" type="text" name="name" id="name" placeholder="Reader's name" required>
                 <input class="findcard-form__card" type="text" name="card" id="card" placeholder="Card number" required>
               </div>
-              <button class="findcard-form__btn" type="submit">Check the card</button>
+              <button class="findcard-form__btn" type="submit" disabled>Check the card</button>
             </form>
           </div>
           <div class="librarycard__right-column getcard">
@@ -422,6 +435,7 @@
       </div>
     </div>
   </footer>
+
 </body>
 
 </html>
