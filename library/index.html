@@ -9,10 +9,8 @@
   <link rel="stylesheet" href="css/style.css">
   <title>Library</title>
   <!-- <script src="js/self-assessment.js" defer></script> -->
-  <script src="js/menu.js" defer></script>
   <script src="js/seamless-scroll-polyfill_bundle.min.js" defer></script>
-  <script src="js/scroll.js" defer></script>
-  <script src="js/index.js" defer></script>
+  <script src="js/index.js" type="module"></script>
 </head>
 
 <body class="body">
@@ -36,15 +34,17 @@
           <img src="assets/img/profile.svg" alt="">
         </button>
         <div class="header-profile__dropdown profile-dropdown">
-          <h3 class="profile-dropdown__title">Profile</h3>
-          <ul class="profile-dropdown__content profile-dropdown__content_no-auth">
-            <li><a class="profile-dropdown__login" href="#">Log In</a></li>
-            <li><a class="profile-dropdown__register" href="#">Register</a></li>
-          </ul>
-          <ul class="profile-dropdown__content profile-dropdown__content_with-auth">
-            <li><a class="profile-dropdown__my-profile" href="#">My profile</a></li>
-            <li><a class="profile-dropdown__logout" href="#">Log Out</a></li>
-          </ul>
+          <div class="profile-dropdown__wrapper">
+            <h3 class="profile-dropdown__title">Profile</h3>
+            <ul class="profile-dropdown__content profile-dropdown__content_no-auth">
+              <li><a class="profile-dropdown__login" href="#">Log In</a></li>
+              <li><a class="profile-dropdown__register" href="#">Register</a></li>
+            </ul>
+            <ul class="profile-dropdown__content profile-dropdown__content_with-auth">
+              <li><a class="profile-dropdown__my-profile" href="#">My profile</a></li>
+              <li><a class="profile-dropdown__logout" href="#">Log Out</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

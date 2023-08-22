@@ -258,18 +258,29 @@ button {
 }
 
 .profile-dropdown {
-  display: none;
   position: absolute;
   width: 80px;
-  height: 115px;
+  height: 0;
   right: 0;
   padding: 5px 4px;
   text-align: center;
   color: var(--black);
   background-color: var(--white);
+  opacity: 0;
+  transition: all 0.5s ease 0s;
 }
 
 .profile-dropdown_show {
+  display: block;
+  height: 115px;
+  opacity: 1;
+}
+
+.profile-dropdown__wrapper {
+  display: none;
+}
+
+.profile-dropdown_show .profile-dropdown__wrapper {
   display: block;
 }
 
