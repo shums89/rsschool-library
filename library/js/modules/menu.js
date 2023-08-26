@@ -27,4 +27,5 @@ export const menu = () => {
   headerNav.classList.remove('header-nav_nojs');
   headerNavToggle.addEventListener('click', showMenu);
   document.addEventListener('click', closeMenuOverlay);
+  closeMenu();
 };

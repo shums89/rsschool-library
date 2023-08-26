@@ -1,5 +1,18 @@
+import { openModalRegister } from "./modal.js";
+
 const headerProfile = document.querySelector('.header-profile');
 const profileDropdown = headerProfile.querySelector('.profile-dropdown');
+const headerProfileBtn = headerProfile.querySelector('.header-profile__btn');
+const profileDropdownTitle = headerProfile.querySelector('.profile-dropdown__title');
+
+const getAuth = () => {
+  return localStorage.getItem('card') && localStorage.getItem('name') && localStorage.getItem('surname') && localStorage.getItem('email');
+};
+
+const showDropdown = () => {
+  profileDropdown.classList.toggle('profile-dropdown_show');
+  toggleDropdown();
+};
 
 const closeDropdown = ({ target = e.target }) => {
   if (profileDropdown.classList.contains('profile-dropdown_show') && !target.closest('.header-profile__btn') && !target.closest('.profile-dropdown')) {
@@ -8,28 +21,31 @@ const closeDropdown = ({ target = e.target }) => {
   }
 };
 
-const toggleDropdown = () => {
-  profileDropdown.classList.toggle('profile-dropdown_show');
+export const toggleDropdown = () => {
+  const dropdownContentsWithAuth = profileDropdown.querySelector('.profile-dropdown__content_with-auth')
+  const dropdownContentsNoAuth = profileDropdown.querySelector('.profile-dropdown__content_no-auth')
 
-  if (profileDropdown.matches('.profile-dropdown_show')) {
-    const dropdownContents = profileDropdown.querySelectorAll('.profile-dropdown__content')
-    const auth = false ? 'with-auth' : 'no-auth';
-
-    dropdownContents.forEach(element => {
-      if (element.matches(`.profile-dropdown__content_${auth}`)) {
-        element.classList.add('profile-dropdown__content_show');
-      } else {
-        element.classList.remove('profile-dropdown__content_show');
-      }
-    });
-
-    document.addEventListener('click', closeDropdown);
+  if (getAuth()) {
+    headerProfile.classList.add('header-profile_auth');
+    headerProfileBtn.textContent = localStorage.getItem('name').slice(0, 1) + localStorage.getItem('surname').slice(0, 1);
+    headerProfileBtn.title = `${localStorage.getItem('name')} ${localStorage.getItem('surname')}`;
+    profileDropdownTitle.textContent = localStorage.getItem('card');
+    dropdownContentsWithAuth.classList.add('profile-dropdown__content_show');
+    dropdownContentsNoAuth.classList.remove('profile-dropdown__content_show');
+  } else {
+    headerProfile.classList.remove('header-profile_auth');
+    headerProfileBtn.textContent = '';
+    headerProfileBtn.title = '';
+    dropdownContentsWithAuth.classList.remove('profile-dropdown__content_show');
+    dropdownContentsNoAuth.classList.add('profile-dropdown__content_show');
   }
+
+  document.addEventListener('click', closeDropdown);
 };
 
 const processingHeaderProfile = ({ target = e.target }) => {
   if (target.closest('.header-profile__btn')) {
-    toggleDropdown();
+    showDropdown();
     return;
   }
 
@@ -39,7 +55,7 @@ const processingHeaderProfile = ({ target = e.target }) => {
   }
 
   if (target.closest('.profile-dropdown__register')) {
-    console.log('register');
+    openModalRegister();
     return;
   }
 
@@ -56,4 +72,5 @@ const processingHeaderProfile = ({ target = e.target }) => {
 
 export const profile = () => {
   headerProfile.addEventListener('click', processingHeaderProfile);
+  toggleDropdown();
 };

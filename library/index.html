@@ -30,9 +30,7 @@
         </ul>
       </nav>
       <div class="header__profile header-profile">
-        <button class="header-profile__btn" type="button">
-          <img src="assets/img/profile.svg" alt="">
-        </button>
+        <button class="header-profile__btn" type="button" aria-label="Profile"></button>
         <div class="header-profile__dropdown profile-dropdown">
           <div class="profile-dropdown__wrapper">
             <h3 class="profile-dropdown__title">Profile</h3>
@@ -439,12 +437,12 @@
   <section class="modal-register modal-with-form modal">
     <div class="modal-with-form__wrapper modal-register__wrapper">
       <h2 class="modal-with-form__title">Register</h2>
-      <form class="modal-with-form__form" action="#" method="post">
-        <label>First name<input type="text" name="first-name" required></label>
-        <label>Last name<input type="text" name="last-name" required></label>
+      <form class="modal-with-form__form">
+        <label>First name<input type="text" name="name" required></label>
+        <label>Last name<input type="text" name="surname" required></label>
         <label>E-mail<input type="email" name="email" required></label>
         <label>Password<input type="password" name="password" minlength="8" maxlength="20" required></label>
-        <button type="submit">Sign Up</button>
+        <button class="modal-register__signup" type="submit">Sign Up</button>
       </form>
       <div class="modal-with-form__footer">
         <p>Already have an account?</p>
@@ -458,13 +456,13 @@
       </button>
     </div>
   </section>
-  <section class="modal-login modal-with-form modal modal_show">
+  <section class="modal-login modal-with-form modal">
     <div class="modal-with-form__wrapper modal-login__wrapper">
       <h2 class="modal-with-form__title">Login</h2>
       <form class="modal-with-form__form" action="#" method="post">
         <label>E-mail or readers card<input type="text" name="login" required></label>
         <label>Password<input type="password" name="password" minlength="8" maxlength="20" required></label>
-        <button type="submit">Log In</button>
+        <button class="modal-login__login" type="submit">Log In</button>
       </form>
       <div class="modal-with-form__footer">
         <p>Don’t have an account?</p>
