@@ -524,7 +524,7 @@ button {
 
 .favorites__subtitle {
   font-family: "Inter";
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--black);
   margin-bottom: 42px;
@@ -534,7 +534,9 @@ button {
   display: flex;
   flex-wrap: wrap;
   gap: 10px 82px;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .tabs-header__label {
@@ -1313,6 +1315,13 @@ button {
 
   .about-slider__list {
     margin-bottom: 20px;
+  }
+
+  .tabs__header {
+    position: sticky;
+    top: 0;
+    background-color: var(--white);
+    z-index: 1;
   }
 
   .season__books {
