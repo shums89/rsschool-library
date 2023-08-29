@@ -1,5 +1,9 @@
+import { getAuth } from "./profile.js";
+import { openModalLogin } from "./modal.js";
+
 const tab = document.querySelector('.tabs');
 const tabHeader = tab.querySelector('.tabs-header');
+const bookBuyBtns = document.querySelectorAll('.book__btn');
 
 const debounce = (callee, timeoutMs) => {
   return function perform(...args) {
@@ -39,7 +43,20 @@ const changeSeasons = ({ target = e.target }) => {
 
 const changeSeasonsWithDebounce = debounce(changeSeasons, 1000)
 
+export const toogleEventToBtnBook = () => {
+  const auth = getAuth();
+
+  bookBuyBtns.forEach(element => {
+    if (auth) {
+      element.removeEventListener('click', openModalLogin);
+    } else {
+      element.addEventListener('click', openModalLogin);
+    }
+  });
+};
+
 export const favorites = () => {
   tabHeader.addEventListener('change', hideSeason);
   tabHeader.addEventListener('change', changeSeasonsWithDebounce);
+  toogleEventToBtnBook();
 };

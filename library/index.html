@@ -437,7 +437,7 @@
   <section class="modal-register modal-with-form modal">
     <div class="modal-with-form__wrapper modal-register__wrapper">
       <h2 class="modal-with-form__title">Register</h2>
-      <form class="modal-with-form__form">
+      <form class="modal-with-form__form" action="#" method="post">
         <label>First name<input type="text" name="name" required></label>
         <label>Last name<input type="text" name="surname" required></label>
         <label>E-mail<input type="email" name="email" required></label>
@@ -446,7 +446,7 @@
       </form>
       <div class="modal-with-form__footer">
         <p>Already have an account?</p>
-        <a href="#">Login</a>
+        <a class="modal-register__login" href="#">Login</a>
       </div>
       <button class="modal-with-form__btn" type="submit" aria-label="Закрыть форму">
         <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
@@ -466,7 +466,7 @@
       </form>
       <div class="modal-with-form__footer">
         <p>Don’t have an account?</p>
-        <a href="#">Register</a>
+        <a class="modal-login__register" href="#">Register</a>
       </div>
       <button class="modal-with-form__btn" type="submit" aria-label="Закрыть форму">
         <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">

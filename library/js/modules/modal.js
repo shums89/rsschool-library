@@ -1,9 +1,18 @@
-import { toggleDropdown } from "./profile.js";
+import { toggleDropdown, closeDropdown } from "./profile.js";
+import { toogleEventToBtnBook } from "./favorites.js";
 
-const getcardBtnSingup = document.querySelector('.getcard__btn-singup');
+const getcardSingupBtn = document.querySelector('.getcard__btn-singup');
+const getcardLoginBtn = document.querySelector('.getcard__btn-login');
+
 const modalRegister = document.querySelector('.modal-register');
-const btnClose = modalRegister.querySelector('.modal-with-form__btn');
-const form = modalRegister.querySelector('.modal-with-form__form');
+const btnCloseRegister = modalRegister.querySelector('.modal-with-form__btn');
+const formRegister = modalRegister.querySelector('.modal-with-form__form');
+const modalRegisterLoginBtn = modalRegister.querySelector('.modal-register__login');
+
+const modalLogin = document.querySelector('.modal-login');
+const btnCloseLogin = modalLogin.querySelector('.modal-with-form__btn');
+const formLogin = modalLogin.querySelector('.modal-with-form__form');
+const modalLoginRegisterBtn = modalLogin.querySelector('.modal-login__register');
 
 const getCardNumber = () => {
   const n = Math.floor(Math.random() * 1e100).toString(16);
@@ -13,40 +22,108 @@ const getCardNumber = () => {
 const register = e => {
   e.preventDefault();
 
-  const formData = new FormData(form);
+  const formData = new FormData(formRegister);
   for (let pair of formData.entries()) {
     localStorage.setItem(pair[0], pair[1]);
   }
   localStorage.setItem('card', getCardNumber());
-  form.reset();
+  localStorage.setItem('auth', 'true');
+  formRegister.reset();
 
   toggleDropdown();
-  closeModal();
+  closeModalRegister();
+  toogleEventToBtnBook();
 };
 
-const login = () => {
+const login = e => {
+  e.preventDefault();
 
+  if (!localStorage.getItem('card')
+    || !localStorage.getItem('name')
+    || !localStorage.getItem('surname')
+    || !localStorage.getItem('email')
+    || !localStorage.getItem('password')
+  ) {
+    alert('Вход в учётную запись доступен только после регистрации!');
+    formLogin.reset();
+    openModalRegister();
+    return;
+  }
+
+  const formData = new FormData(formLogin);
+  const formDataItems = {};
+
+  for (let pair of formData.entries()) {
+    formDataItems[pair[0]] = pair[1];
+  }
+
+  if ((formDataItems.login == localStorage.getItem('card') || formDataItems.login == localStorage.getItem('email'))
+    && formDataItems.password == localStorage.getItem('password')
+  ) {
+    localStorage.setItem('auth', 'true');
+    formLogin.reset();
+    toggleDropdown();
+    closeModalLogin();
+  } else {
+    alert('Неверный логин и/или пароль!');
+  }
+
+  toogleEventToBtnBook();
 };
 
-const clickOverlay = e => {
+const clickOverlayRegister = e => {
   if (!e.target.closest('.modal-register__wrapper')) {
-    closeModal();
+    closeModalRegister();
   }
 };
 
-export const openModalRegister = () => {
-  modalRegister.classList.add('modal_show');
-  btnClose.addEventListener('click', closeModal);
-  modalRegister.addEventListener('click', clickOverlay);
-  form.addEventListener('submit', register);
+const clickOverlayLogin = e => {
+  if (!e.target.closest('.modal-login__wrapper')) {
+    closeModalLogin();
+  }
 };
 
-const closeModal = () => {
-  modalRegister.classList.remove('modal_show');
-  btnClose.removeEventListener('click', closeModal);
-  modalRegister.removeEventListener('click', clickOverlay);
+export const openModalRegister = e => {
+  if (e) {
+    e.preventDefault();
+  }
+  closeModalLogin();
+  modalRegister.classList.add('modal_show');
+  btnCloseRegister.addEventListener('click', closeModalRegister);
+  modalRegister.addEventListener('click', clickOverlayRegister);
+  formRegister.addEventListener('submit', register);
+  modalRegisterLoginBtn.addEventListener('click', openModalLogin);
+  closeDropdown();
 };
+
+const closeModalRegister = () => {
+  modalRegister.classList.remove('modal_show');
+  btnCloseRegister.removeEventListener('click', closeModalRegister);
+  modalRegister.removeEventListener('click', clickOverlayRegister);
+  modalRegisterLoginBtn.removeEventListener('click', openModalLogin);
+};
+
+export const openModalLogin = e => {
+  e.preventDefault();
+  closeModalRegister();
+  modalLogin.classList.add('modal_show');
+  btnCloseLogin.addEventListener('click', closeModalLogin);
+  modalLogin.addEventListener('click', clickOverlayLogin);
+  formLogin.addEventListener('submit', login);
+  modalLoginRegisterBtn.addEventListener('click', openModalRegister);
+  closeDropdown();
+};
+
+const closeModalLogin = () => {
+  modalLogin.classList.remove('modal_show');
+  btnCloseLogin.removeEventListener('click', closeModalLogin);
+  modalLogin.removeEventListener('click', clickOverlayLogin);
+  modalLoginRegisterBtn.removeEventListener('click', openModalRegister);
+};
+
+
 
 export const modal = () => {
-  getcardBtnSingup.addEventListener('click', openModalRegister);
+  getcardSingupBtn.addEventListener('click', openModalRegister);
+  getcardLoginBtn.addEventListener('click', openModalLogin);
 };

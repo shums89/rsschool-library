@@ -1,12 +1,26 @@
-import { openModalRegister } from "./modal.js";
+import { openModalRegister, openModalLogin } from "./modal.js";
 
 const headerProfile = document.querySelector('.header-profile');
 const profileDropdown = headerProfile.querySelector('.profile-dropdown');
 const headerProfileBtn = headerProfile.querySelector('.header-profile__btn');
 const profileDropdownTitle = headerProfile.querySelector('.profile-dropdown__title');
 
-const getAuth = () => {
-  return localStorage.getItem('card') && localStorage.getItem('name') && localStorage.getItem('surname') && localStorage.getItem('email');
+export const getAuth = () => {
+  return localStorage.getItem('auth') === 'true'
+    && localStorage.getItem('card')
+    && localStorage.getItem('name')
+    && localStorage.getItem('surname')
+    && localStorage.getItem('email')
+    && localStorage.getItem('password');
+};
+
+const logout = e => {
+  e.preventDefault();
+
+  localStorage.setItem('auth', 'false');
+
+  toggleDropdown();
+  closeDropdown();
 };
 
 const showDropdown = () => {
@@ -14,11 +28,15 @@ const showDropdown = () => {
   toggleDropdown();
 };
 
-const closeDropdown = ({ target = e.target }) => {
+const clickOverlayDropdown = ({ target = e.target }) => {
   if (profileDropdown.classList.contains('profile-dropdown_show') && !target.closest('.header-profile__btn') && !target.closest('.profile-dropdown')) {
-    profileDropdown.classList.remove('profile-dropdown_show');
-    document.removeEventListener('click', closeDropdown);
+    closeDropdown();
   }
+};
+
+export const closeDropdown = () => {
+  profileDropdown.classList.remove('profile-dropdown_show');
+  document.removeEventListener('click', clickOverlayDropdown);
 };
 
 export const toggleDropdown = () => {
@@ -36,26 +54,29 @@ export const toggleDropdown = () => {
     headerProfile.classList.remove('header-profile_auth');
     headerProfileBtn.textContent = '';
     headerProfileBtn.title = '';
+    profileDropdownTitle.textContent = 'Profile';
     dropdownContentsWithAuth.classList.remove('profile-dropdown__content_show');
     dropdownContentsNoAuth.classList.add('profile-dropdown__content_show');
   }
 
-  document.addEventListener('click', closeDropdown);
+  document.addEventListener('click', clickOverlayDropdown);
 };
 
-const processingHeaderProfile = ({ target = e.target }) => {
+const processingHeaderProfile = e => {
+  const target = e.target
+
   if (target.closest('.header-profile__btn')) {
     showDropdown();
     return;
   }
 
   if (target.closest('.profile-dropdown__login')) {
-    console.log('log in');
+    openModalLogin(e);
     return;
   }
 
   if (target.closest('.profile-dropdown__register')) {
-    openModalRegister();
+    openModalRegister(e);
     return;
   }
 
@@ -65,7 +86,7 @@ const processingHeaderProfile = ({ target = e.target }) => {
   }
 
   if (target.closest('.profile-dropdown__logout')) {
-    console.log('log out');
+    logout(e);
     return;
   }
 };
