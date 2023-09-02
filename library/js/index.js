@@ -3,7 +3,7 @@ import { scroll } from './modules/scroll.js';
 import { about } from './modules/about.js';
 import { favorites } from './modules/favorites.js';
 import { modal } from './modules/modal.js';
-import { profile } from './modules/profile.js';
+import { dropdown } from './modules/dropdown.js';
 
 const init = () => {
   menu();
@@ -11,7 +11,7 @@ const init = () => {
   about();
   favorites();
   modal();
-  profile();
+  dropdown();
 };
 
 init();

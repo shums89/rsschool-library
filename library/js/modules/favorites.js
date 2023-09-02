@@ -1,4 +1,4 @@
-import { getAuth } from "./profile.js";
+import { getAuth } from "./dropdown.js";
 import { openModalLogin } from "./modal.js";
 
 const tab = document.querySelector('.tabs');

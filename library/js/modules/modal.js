@@ -1,4 +1,4 @@
-import { toggleDropdown, closeDropdown } from "./profile.js";
+import { toggleDropdown, closeDropdown } from "./dropdown.js";
 import { toogleEventToBtnBook } from "./favorites.js";
 
 const getcardSingupBtn = document.querySelector('.getcard__btn-singup');

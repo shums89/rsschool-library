@@ -93,7 +93,7 @@ const processingHeaderProfile = e => {
   }
 };
 
-export const profile = () => {
+export const dropdown = () => {
   headerProfile.addEventListener('click', processingHeaderProfile);
   toggleDropdown();
 };
