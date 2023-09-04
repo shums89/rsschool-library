@@ -19,6 +19,10 @@ const getCardNumber = () => {
   return ('0'.repeat(Math.max(9 - n.length, 0)) + n).slice(0, 9).toUpperCase();
 };
 
+const addVisits = () => {
+  localStorage.setItem('visits', localStorage.getItem('visits') ? +localStorage.getItem('visits') + 1 : 1);
+};
+
 const register = e => {
   e.preventDefault();
 
@@ -30,6 +34,7 @@ const register = e => {
   localStorage.setItem('auth', 'true');
   formRegister.reset();
 
+  addVisits();
   toggleDropdown();
   closeModalRegister();
   toogleEventToBtnBook();
@@ -67,7 +72,7 @@ const login = e => {
   } else {
     alert('Неверный логин и/или пароль!');
   }
-
+  addVisits();
   toogleEventToBtnBook();
 };
 
@@ -120,8 +125,6 @@ const closeModalLogin = () => {
   modalLogin.removeEventListener('click', clickOverlayLogin);
   modalLoginRegisterBtn.removeEventListener('click', openModalRegister);
 };
-
-
 
 export const modal = () => {
   getcardSingupBtn.addEventListener('click', openModalRegister);

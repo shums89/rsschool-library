@@ -641,7 +641,7 @@ button {
   color: var(--black);
 }
 
-.book__subtitle {
+.book__author {
   display: inline-block;
   margin-bottom: 20px;
   font-family: "Inter";
@@ -690,12 +690,12 @@ button {
   transition: all 0.3s ease 0s;
 }
 
-.book__btn:hover:not(:is(.book__btn_own)) {
+.book .book__btn:hover {
   border-color: var(--yellow-barley-corn);
   background-color: var(--yellow-barley-corn);
 }
 
-.book__btn_own {
+.book_own .book__btn {
   color: var(--yellow-barley-corn);
   border-color: var(--yellow-barley-corn);
   cursor: default;
@@ -1369,8 +1369,11 @@ button {
 }
 
 .rented-books__list {
+  width: 390px;
+  max-height: 150px;
+  padding-left: 28px;
+  overflow: scroll;
   list-style: disc;
-  margin-left: 28px;
 }
 
 .rented-books__item {
@@ -1379,6 +1382,7 @@ button {
   font-weight: 400;
   line-height: 20px;
   letter-spacing: 2px;
+  white-space: nowrap;
 }
 
 .rented-books__item:not(:last-child) {

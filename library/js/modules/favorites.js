@@ -55,6 +55,23 @@ export const toogleEventToBtnBook = () => {
   });
 };
 
+export const getBooksOwn = () => {
+  const books = document.querySelectorAll('.book');
+
+  let booksOwnArr = [];
+
+  books.forEach(element => {
+    if (element.matches('.book_own')) {
+      let booksOwn = {};
+      booksOwn.title = element.querySelector('.book__title').textContent;
+      booksOwn.author = element.querySelector('.book__author').textContent.replace('By ', '');
+      booksOwnArr.push(booksOwn)
+    }
+  });
+
+  return booksOwnArr;
+};
+
 export const favorites = () => {
   tabHeader.addEventListener('change', hideSeason);
   tabHeader.addEventListener('change', changeSeasonsWithDebounce);

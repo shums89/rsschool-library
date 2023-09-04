@@ -1,5 +1,6 @@
 import { openModalRegister, openModalLogin } from "./modal.js";
 import { toogleEventToBtnBook } from "./favorites.js";
+import { openModalProfile } from "./profile.js";
 
 const headerProfile = document.querySelector('.header-profile');
 const profileDropdown = headerProfile.querySelector('.profile-dropdown');
@@ -83,7 +84,7 @@ const processingHeaderProfile = e => {
   }
 
   if (target.closest('.profile-dropdown__my-profile')) {
-    console.log('my profile');
+    openModalProfile(e);
     return;
   }
 
