@@ -1319,12 +1319,6 @@ button {
   text-transform: uppercase;
 }
 
-.modal-profile__cards-profile {
-}
-
-.cards-profile {
-}
-
 .cards-profile__info {
   display: flex;
   gap: 20px;
@@ -1421,6 +1415,129 @@ button {
 }
 
 .modal-profile__close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-buy-card__wrapper {
+  position: relative;
+  width: 640px;
+  height: 540px;
+  background-color: var(--white);
+}
+
+.modal-buy-card__title {
+  padding: 20px;
+  font-family: "Forum";
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.8px;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--white);
+  background-color: var(--grey-black-russian);
+}
+
+.modal-buy-card__content {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+  padding: 30px 30px 40px 40px;
+}
+
+.buy-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.buy-form label:not(:last-of-type) {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.buy-form input {
+  height: 22px;
+  margin-top: 11px;
+  border: 1px solid var(--yellow-barley-corn);
+}
+
+.buy-form__card input[name="card-number"] {
+  width: 200px;
+}
+
+.buy-form__card-expiration {
+  display: flex;
+  gap: 10px;
+}
+
+.buy-form__card input[name^="expiration-"] {
+  width: 45px;
+}
+
+.buy-form__card input[name="cvc"] {
+  display: block;
+  width: 45px;
+}
+
+.buy-form__cardholder input {
+  width: 200px;
+}
+
+.modal-buy-card__buy-wrapper {
+  display: flex;
+  align-items: end;
+  gap: 25px;
+}
+
+.modal-buy-card__buy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75px;
+  height: 30px;
+  border: 1px solid var(--grey-black-russian);
+  border-radius: 2px;
+  background-color: transparent;
+  font-family: "Inter";
+  font-size: 10px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  color: var(--grey-black-russian);
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.modal-buy-card__buy:hover {
+  border-color: var(--yellow-barley-corn);
+  background-color: var(--yellow-barley-corn);
+}
+
+.modal-buy-card__price {
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 2px;
+  color: var(--grey-black-russian);
+}
+
+.modal-buy-card__right {
+  font-family: "Inter";
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 2px;
+  color: var(--grey-suva-grey);
+}
+
+.modal-buy-card__close {
   position: absolute;
   top: 25px;
   right: 25px;
