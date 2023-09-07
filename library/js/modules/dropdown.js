@@ -1,5 +1,4 @@
 import { openModalRegister, openModalLogin } from "./modal.js";
-import { toogleEventToBtnBook } from "./favorites.js";
 import { openModalProfile } from "./profile.js";
 
 const headerProfile = document.querySelector('.header-profile');
@@ -23,7 +22,6 @@ const logout = e => {
 
   toggleDropdown();
   closeDropdown();
-  toogleEventToBtnBook();
 };
 
 const showDropdown = () => {

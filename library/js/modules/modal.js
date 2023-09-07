@@ -1,5 +1,4 @@
 import { toggleDropdown, closeDropdown } from "./dropdown.js";
-import { toogleEventToBtnBook } from "./favorites.js";
 
 const getcardSingupBtn = document.querySelector('.getcard__btn-singup');
 const getcardLoginBtn = document.querySelector('.getcard__btn-login');
@@ -37,7 +36,6 @@ const register = e => {
   addVisits();
   toggleDropdown();
   closeModalRegister();
-  toogleEventToBtnBook();
 };
 
 const login = e => {
@@ -73,7 +71,6 @@ const login = e => {
     alert('Неверный логин и/или пароль!');
   }
   addVisits();
-  toogleEventToBtnBook();
 };
 
 const clickOverlayRegister = e => {

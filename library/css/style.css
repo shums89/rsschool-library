@@ -690,7 +690,7 @@ button {
   transition: all 0.3s ease 0s;
 }
 
-.book .book__btn:hover {
+.book:not(:is(.book_own)) .book__btn:hover {
   border-color: var(--yellow-barley-corn);
   background-color: var(--yellow-barley-corn);
 }
@@ -1364,6 +1364,7 @@ button {
 
 .rented-books__list {
   width: 390px;
+  min-height: 50px;
   max-height: 150px;
   padding-left: 28px;
   overflow: scroll;

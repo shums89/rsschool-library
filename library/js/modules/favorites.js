@@ -1,5 +1,6 @@
 import { getAuth } from "./dropdown.js";
 import { openModalLogin } from "./modal.js";
+import { openModalBuyCard } from "./buy-card.js";
 
 const tab = document.querySelector('.tabs');
 const tabHeader = tab.querySelector('.tabs-header');
@@ -43,16 +44,26 @@ const changeSeasons = ({ target = e.target }) => {
 
 const changeSeasonsWithDebounce = debounce(changeSeasons, 1000)
 
-export const toogleEventToBtnBook = () => {
-  const auth = getAuth();
-
+const addEventToBtnBook = () => {
   bookBuyBtns.forEach(element => {
-    if (auth) {
-      element.removeEventListener('click', openModalLogin);
-    } else {
-      element.addEventListener('click', openModalLogin);
-    }
+    element.addEventListener('click', toogleEventToBtnBook);
   });
+};
+
+const toogleEventToBtnBook = e => {
+  if (!getAuth()) {
+    openModalLogin(e);
+    return;
+  }
+
+  if (localStorage.getItem('buy-card') !== 'true') {
+    openModalBuyCard(e);
+    return;
+  }
+  e.target.closest('.book').classList.add('book_own');
+  e.target.textContent = 'Own';
+  e.target.disabled = true;
+  e.target.removeEventListener('click', toogleEventToBtnBook);
 };
 
 export const getBooksOwn = () => {
@@ -75,5 +86,5 @@ export const getBooksOwn = () => {
 export const favorites = () => {
   tabHeader.addEventListener('change', hideSeason);
   tabHeader.addEventListener('change', changeSeasonsWithDebounce);
-  toogleEventToBtnBook();
+  addEventToBtnBook();
 };
