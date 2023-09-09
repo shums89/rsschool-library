@@ -1,6 +1,7 @@
 import { getAuth } from "./dropdown.js";
 import { openModalLogin } from "./modal.js";
 import { openModalBuyCard } from "./buy-card.js";
+import { renderLibraryCard } from "./librarycard.js";
 
 const tab = document.querySelector('.tabs');
 const tabHeader = tab.querySelector('.tabs-header');
@@ -64,6 +65,7 @@ const toogleEventToBtnBook = e => {
   e.target.textContent = 'Own';
   e.target.disabled = true;
   e.target.removeEventListener('click', toogleEventToBtnBook);
+  renderLibraryCard();
 };
 
 export const getBooksOwn = () => {

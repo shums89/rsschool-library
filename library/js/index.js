@@ -4,6 +4,7 @@ import { about } from './modules/about.js';
 import { favorites } from './modules/favorites.js';
 import { modal } from './modules/modal.js';
 import { dropdown } from './modules/dropdown.js';
+import { renderLibraryCard } from './modules/librarycard.js';
 
 const init = () => {
   menu();
@@ -12,6 +13,7 @@ const init = () => {
   favorites();
   modal();
   dropdown();
+  renderLibraryCard();
 };
 
 init();

@@ -882,29 +882,27 @@ button {
 .findcard-form__content {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
   padding: 20px 20px 25px 20px;
   background-color: var(--yellow-barley-corn);
 }
 
-.findcard-form__content input {
+.findcard-form__content input,
+.findcard-form__content input:disabled {
   width: 520px;
   padding: 8px 20px;
   border: none;
   border-radius: 10px;
-}
-
-.findcard-form__content input:not(:last-child) {
-  margin-bottom: 25px;
-}
-
-.findcard-form__content input {
   font-family: "Forum";
   font-size: 30px;
   font-weight: 400;
   line-height: 50px;
   letter-spacing: 0.6px;
   color: var(--yellow-barley-corn);
+  background-color: var(--white);
+}
+
+.findcard-form__content input:not(:last-child) {
+  margin-bottom: 25px;
 }
 
 .findcard-form__content input::placeholder {
@@ -921,7 +919,46 @@ button {
   color: var(--black);
 }
 
+.librarycard:not(:is(.librarycard_auth)) .findcard-profile {
+  display: none;
+}
+
+.findcard-profile__info {
+  display: flex;
+  gap: 35px;
+  margin-top: 15px;
+}
+
+.findcard-profile__info-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1px;
+}
+
+.findcard-profile__info-title {
+  font-family: "Inter";
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+}
+
+.findcard-profile__info-count {
+  font-family: "Inter";
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+}
+
+.librarycard_auth .findcard-form__btn {
+  display: none;
+}
+
 .findcard-form__btn {
+  margin-top: 20px;
   padding: 9px 38px;
   border-radius: 2px;
   border: 1px solid var(--grey-black-russian);
@@ -945,7 +982,16 @@ button {
   text-align: right;
 }
 
-.getcard__title {
+.librarycard_auth .getcard {
+  display: none;
+}
+
+.librarycard:not(:is(.librarycard_auth)) .visit-profile {
+  display: none;
+}
+
+.getcard__title,
+.visit-profile__title {
   margin-bottom: 35px;
   font-family: "Forum";
   font-size: 30px;
@@ -955,7 +1001,8 @@ button {
   color: var(--black);
 }
 
-.getcard__text {
+.getcard__text,
+.visit-profile__text {
   display: inline-block;
   max-width: 456px;
   margin-bottom: 34px;
@@ -974,7 +1021,9 @@ button {
   gap: 20px;
 }
 
-.getcard__btns button {
+.getcard__btn-singup,
+.getcard__btn-login,
+.visit-profile__btn-profile {
   width: 75px;
   height: 30px;
   border-radius: 2px;
@@ -988,6 +1037,11 @@ button {
   color: var(--grey-black-russian);
   text-align: center;
   cursor: pointer;
+}
+
+.visit-profile__btn-profile {
+  display: block;
+  margin-left: auto;
 }
 
 .getcard__btns button:hover {
@@ -1642,17 +1696,23 @@ button {
     text-align: center;
   }
 
-  .getcard__title {
+  .getcard__title,
+  .visit-profile__title {
     margin-bottom: 40px;
   }
 
-  .getcard__text {
+  .getcard__text,
+  .visit-profile__text {
     max-width: 600px;
     margin-bottom: 40px;
   }
 
   .getcard__btns {
     justify-content: center;
+  }
+
+  .visit-profile__btn-profile {
+    margin-right: auto;
   }
 
   .footer__footer > * {

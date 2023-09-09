@@ -1,4 +1,5 @@
 import { toggleDropdown, closeDropdown } from "./dropdown.js";
+import { renderLibraryCard } from "./librarycard.js";
 
 const getcardSingupBtn = document.querySelector('.getcard__btn-singup');
 const getcardLoginBtn = document.querySelector('.getcard__btn-login');
@@ -34,6 +35,7 @@ const register = e => {
   formRegister.reset();
 
   addVisits();
+  renderLibraryCard();
   toggleDropdown();
   closeModalRegister();
 };
@@ -65,12 +67,14 @@ const login = e => {
   ) {
     localStorage.setItem('auth', 'true');
     formLogin.reset();
+
+    addVisits();
+    renderLibraryCard();
     toggleDropdown();
     closeModalLogin();
   } else {
     alert('Неверный логин и/или пароль!');
   }
-  addVisits();
 };
 
 const clickOverlayRegister = e => {
