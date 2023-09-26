@@ -1643,6 +1643,7 @@ button {
 
   .header__profile {
     margin-left: auto;
+    z-index: 10;
   }
 
   .about-slider__wrapper {
