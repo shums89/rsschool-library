@@ -1,5 +1,6 @@
 import { openModalRegister, openModalLogin } from "./modal.js";
 import { openModalProfile } from "./profile.js";
+import { renderLibraryCard } from "./librarycard.js";
 
 const headerProfile = document.querySelector('.header-profile');
 const profileDropdown = headerProfile.querySelector('.profile-dropdown');
@@ -20,6 +21,7 @@ const logout = e => {
 
   localStorage.setItem('auth', 'false');
 
+  renderLibraryCard();
   toggleDropdown();
   closeDropdown();
 };

@@ -26,6 +26,10 @@ export const renderLibraryCard = () => {
   } else {
     libraryCard.classList.remove('librarycard_auth');
     findcardTitle.textContent = 'Find your Library card';
+    findcardFormName.value = '';
+    findcardFormName.disabled = false;
+    findcardFormCard.value = '';
+    findcardFormCard.disabled = false;
     visitProfileBtn.removeEventListener('click', openModalProfile);
   }
 };
