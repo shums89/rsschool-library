@@ -1,0 +1,1748 @@
+@font-face {
+  font-family: "Inter";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: local("Inter Regular"), local("Inter-Regular");
+  src: url("../assets/fonts/InterRegular.woff2") format("woff2"),
+    url("../assets/fonts/InterRegular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: local("Inter Bold"), local("Inter-Bold");
+  src: url("../assets/fonts/InterBold.woff2") format("woff2"),
+    url("../assets/fonts/InterBold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Forum";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: local("Forum Regular"), local("Forum-Regular");
+  src: url("../assets/fonts/ForumRegular.woff2") format("woff2"),
+    url("../assets/fonts/ForumRegular.woff") format("woff");
+}
+
+:root {
+  --black: rgba(0, 0, 0, 1);
+  --grey-suva-grey: rgba(142, 142, 142, 1);
+  --grey-black-russian: rgba(12, 12, 14, 1);
+  --white: rgba(255, 255, 255, 1);
+  --yellow-barley-corn: rgba(187, 148, 95, 1);
+  --gradient-black-russian: linear-gradient(
+    180deg,
+    rgba(12, 12, 14, 1) 0%,
+    rgba(12, 12, 14, 1) 0.01%,
+    rgba(18, 18, 21, 0.1) 100%
+  );
+  --box-chadow: rgba(0, 0, 0, 0.25);
+  --overlay: rgba(0, 0, 0, 0.8);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+figure {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+button {
+  padding: 0;
+}
+
+[class*="__container"] {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--black);
+  background-color: var(--white);
+}
+
+/* HEADER */
+
+.header {
+  background-color: var(--black);
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--white);
+  background-color: var(--grey-black-russian);
+  gap: 30px;
+  min-height: 90px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.header__logo-link {
+  flex: 0 0 auto;
+}
+
+.header__title {
+  font-family: "Forum";
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0.6px;
+}
+
+.header-nav {
+  margin-left: auto;
+}
+
+.header-nav__toggle {
+  display: none;
+  position: relative;
+  width: 45px;
+  height: 22px;
+  margin-left: 10px;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.header-nav_closed .header-nav__toggle:before,
+.header-nav_closed .header-nav__toggle:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45px;
+  height: 2px;
+  background-color: var(--white);
+  box-shadow: 0 10px 0 0 var(--white), 0 20px 0 0 var(--white);
+  transition: all 0.3s ease 0s;
+}
+
+.header-nav_opened .header-nav__toggle:before,
+.header-nav_opened .header-nav__toggle:after {
+  content: "";
+  position: absolute;
+  top: 11px;
+  left: -6px;
+  width: 45px;
+  height: 2px;
+  background-color: var(--white);
+  transition: all 0.3s ease 0s;
+}
+
+.header-nav_opened .header-nav__toggle:before {
+  transform: rotate(45deg);
+}
+
+.header-nav_opened .header-nav__toggle:after {
+  transform: rotate(-45deg);
+}
+
+.header-nav__list {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 10px;
+}
+
+.header-nav__link {
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 50px;
+}
+
+.header-nav__link:after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  height: 2px;
+  width: 0;
+  transform: translateX(-50%);
+  background: var(--grey-suva-grey);
+}
+
+.header-nav__link:hover:after {
+  width: 80%;
+  transition: width 0.5s ease 0s;
+}
+
+.header__profile {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.header-profile__btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 28px;
+  border: none;
+  transition: transform 0.3s ease 0s;
+  background-color: var(--white);
+  background: url("../assets/img/profile.svg") center / cover no-repeat;
+  font-family: "Inter";
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: var(--yellow-barley-corn);
+}
+
+.header-profile_auth .header-profile__btn {
+  background: var(--white);
+}
+
+.header-profile__btn:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.header-profile__btn img {
+  width: 28px;
+  height: 28px;
+}
+
+.profile-dropdown {
+  position: absolute;
+  width: 80px;
+  height: 0;
+  right: 0;
+  padding: 5px 4px;
+  text-align: center;
+  color: var(--black);
+  background-color: var(--white);
+  opacity: 0;
+  transition: all 0.5s ease 0s;
+}
+
+.profile-dropdown_show {
+  display: block;
+  height: 115px;
+  opacity: 1;
+}
+
+.profile-dropdown__wrapper {
+  display: none;
+}
+
+.profile-dropdown_show .profile-dropdown__wrapper {
+  display: block;
+}
+
+.profile-dropdown__title {
+  position: relative;
+  font-family: "Inter";
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--black);
+  margin-bottom: 20px;
+}
+
+.header-profile_auth .profile-dropdown__title {
+  font-size: 11px;
+}
+
+.profile-dropdown__title:after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 1px;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--yellow-barley-corn);
+}
+
+.profile-dropdown__content {
+  display: none;
+  font-family: "Inter";
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--black);
+  text-align: center;
+}
+
+.profile-dropdown__content li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.profile-dropdown__content_show {
+  display: block;
+}
+
+/* MAIN */
+
+.main {
+  margin-bottom: auto;
+}
+
+/* GENERAL */
+
+.section-container {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.section-title {
+  position: relative;
+  text-align: center;
+  font-family: "Forum";
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  color: var(--grey-black-russian);
+  margin-bottom: 40px;
+  padding-bottom: 21px;
+}
+
+.section-title:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 50px;
+  height: 1px;
+  transform: translateX(-50%);
+  background-color: var(--grey-black-russian);
+}
+
+/* WELCOME */
+
+.welcome {
+  background-color: var(--black);
+}
+
+.welcome__container {
+  height: 600px;
+  padding: 0;
+  background: url("../assets/img/welcome.jpeg") center / cover no-repeat;
+}
+
+.welcome__overlay {
+  background: var(--gradient-black-russian);
+}
+
+.welcome__title-wrapper {
+  display: inline-block;
+  min-width: 600px;
+  min-height: 220px;
+  margin-top: 220px;
+  padding: 35px 40px;
+  background-color: var(--black);
+}
+
+.welcome__title {
+  background-color: var(--black);
+  text-align: center;
+  font-family: "Forum";
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+/* ABOUT */
+
+.about__text {
+  text-align: center;
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  color: var(--black);
+  margin-bottom: 20px;
+}
+
+.about-slider {
+  position: relative;
+}
+
+.about-slider__wrapper {
+  overflow: hidden;
+  margin-bottom: 35px;
+}
+
+.about-slider__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  transition: all 1.5s ease 0s;
+}
+
+.about-slider__item {
+  flex: 0 0 auto;
+  width: 450px;
+  height: 560px;
+}
+
+.about-slider__switches {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: none;
+}
+
+.about-slider__switch {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: url("../assets/img/angle.svg") center no-repeat;
+  transition: all 0.3s ease 0s;
+  opacity: 0.5;
+}
+
+.about-slider__switch:not(:disabled) {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.about-slider__switch_next {
+  transform: rotate(-180deg);
+}
+
+.about-slider__switch_prev:not(:disabled):hover {
+  transform: scale(1.5);
+}
+
+.about-slider__switch_next:not(:disabled):hover {
+  transform: rotate(-180deg) scale(1.5);
+}
+
+.about-slider__controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-slider__control {
+  width: 26px;
+  height: 26px;
+  background-color: var(--grey-black-russian);
+  cursor: pointer;
+  border: 5px solid var(--white);
+  border-radius: 50%;
+  transition: transform 0.3s ease 0s;
+}
+
+.about-slider__control:nth-child(n + 4) {
+  display: none;
+}
+
+.about-slider__control_current {
+  background-color: var(--yellow-barley-corn);
+  cursor: default;
+}
+
+.about-slider__control:hover:not(:is(.about-slider__control_current)) {
+  transform: scale(1.2);
+}
+
+/* FAVORITES */
+
+.favorites__container {
+  padding-top: 15px;
+}
+
+.favorites__subtitle {
+  font-family: "Inter";
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 42px;
+}
+
+.tabs__header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 82px;
+  margin-bottom: 35px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.tabs-header__label {
+  position: relative;
+  padding: 5px 5px 5px 40px;
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--black);
+  cursor: pointer;
+}
+
+.tabs-header__label:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 17px;
+  height: 17px;
+  padding: 5px;
+  transform: translateY(-50%);
+  border: 2px solid var(--black);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.tabs-header__input:checked + .tabs-header__label {
+  font-weight: 700;
+}
+
+.tabs-header__input:checked + .tabs-header__label:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  width: 7px;
+  height: 7px;
+  transform: translateY(-50%);
+  background-color: var(--black);
+  border-radius: 50%;
+}
+
+.tabs-header__input:checked + .tabs-header__label:hover,
+.tabs-header__input:checked + .tabs-header__label:hover:before,
+.tabs-header__input:checked + .tabs-header__label:hover:after {
+  cursor: default;
+}
+
+.tabs-header__input:not(:checked) + .tabs-header__label:hover {
+  color: var(--yellow-barley-corn);
+}
+
+.tabs-header__input:not(:checked) + .tabs-header__label:hover:before {
+  border-color: var(--yellow-barley-corn);
+}
+
+.season__books {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.book {
+  position: relative;
+  width: 550px;
+  height: 555px;
+  margin-right: 40px;
+  padding: 15px 20px;
+  border: 1px solid var(--black);
+}
+
+.book__staff-picks {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+  font-family: "Forum";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: var(--black);
+}
+
+.book__staff-picks:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 1px;
+  background: var(--yellow-barley-corn);
+}
+
+.book__title {
+  font-family: "Inter";
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+.book__author {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-family: "Inter";
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: var(--black);
+}
+
+.book__text {
+  display: block;
+  width: 355px;
+  height: 320px;
+  margin-bottom: 15px;
+  overflow-x: hidden;
+  font-family: "Inter";
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  color: var(--black);
+}
+
+.book__text::-webkit-scrollbar {
+  width: 0;
+}
+
+.book__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75px;
+  height: 30px;
+  border: 1px solid var(--grey-black-russian);
+  border-radius: 2px;
+  background-color: transparent;
+  font-family: "Inter";
+  font-size: 10px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  color: var(--grey-black-russian);
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.book:not(:is(.book_own)) .book__btn:hover {
+  border-color: var(--yellow-barley-corn);
+  background-color: var(--yellow-barley-corn);
+}
+
+.book_own .book__btn {
+  color: var(--yellow-barley-corn);
+  border-color: var(--yellow-barley-corn);
+  cursor: default;
+}
+
+.book__img {
+  position: absolute;
+  bottom: -1px;
+  right: -40px;
+}
+
+/* COFEE SHOP */
+
+.coffeeshop__text {
+  margin-bottom: 40px;
+  text-align: center;
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: var(--black);
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.menu-category__title {
+  margin-bottom: 40px;
+  font-family: "Forum";
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: var(--yellow-barley-corn);
+  text-align: left;
+}
+
+.menu-category_right .menu-category__title {
+  text-align: right;
+}
+
+.product:not(:last-child) .product__title,
+.product:not(:last-child) .product__price {
+  border-bottom: 35px solid transparent;
+}
+
+.product__title {
+  padding-right: 54px;
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  color: var(--black);
+}
+
+.menu-category_right .product__title {
+  text-align: right;
+}
+
+.product__price {
+  position: relative;
+  padding-left: 160px;
+  font-family: "Forum";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  color: var(--black);
+  text-align: right;
+}
+
+.product__price:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100px;
+  height: 1px;
+  transform: translateY(50%);
+  background-color: var(--yellow-barley-corn);
+}
+
+/* CONTACTS */
+
+.contacts__content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 100px 8px;
+}
+
+.contacts-data__title {
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  color: var(--black);
+}
+
+.contacts-data__text {
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  color: var(--black);
+}
+
+.contacts-data__phones-title {
+  margin-bottom: 40px;
+}
+
+.contacts-data__phones {
+  margin-bottom: 40px;
+}
+
+.contacts-data__phone:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.contacts-data__phone-link:hover {
+  color: var(--yellow-barley-corn);
+  transition: color 0.3s ease 0s;
+}
+
+.contacts-data__personals-title {
+  margin-bottom: 20px;
+}
+
+.contacts-data__personal-link {
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.contacts-data__personal-link:hover {
+  color: var(--yellow-barley-corn);
+  transition: color 0.3s ease 0s;
+}
+
+.map {
+  max-width: 696px;
+  max-height: 414px;
+  margin: 0;
+}
+
+/* LIBRARYCARD */
+
+.librarycard__content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.findcard__title {
+  margin-bottom: 30px;
+  font-family: "Inter";
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 0.6px;
+  color: var(--black);
+  text-align: center;
+}
+
+.findcard__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.findcard-form {
+  padding: 17px 17px 27px 17px;
+  border: 3px solid var(--yellow-barley-corn);
+  box-shadow: 0px 4px 4px 0px var(--box-chadow);
+}
+
+.findcard-form__content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 25px 20px;
+  background-color: var(--yellow-barley-corn);
+}
+
+.findcard-form__content input,
+.findcard-form__content input:disabled {
+  width: 520px;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 10px;
+  font-family: "Forum";
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0.6px;
+  color: var(--yellow-barley-corn);
+  background-color: var(--white);
+}
+
+.findcard-form__content input:not(:last-child) {
+  margin-bottom: 25px;
+}
+
+.findcard-form__content input::placeholder {
+  color: var(--grey-suva-grey);
+}
+
+.findcard-form__title {
+  margin-bottom: 20px;
+  font-family: "Forum";
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0.6px;
+  color: var(--black);
+}
+
+.librarycard:not(:is(.librarycard_auth)) .findcard-profile {
+  display: none;
+}
+
+.findcard-profile__info {
+  display: flex;
+  gap: 35px;
+  margin-top: 15px;
+}
+
+.findcard-profile__info-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1px;
+}
+
+.findcard-profile__info-title {
+  font-family: "Inter";
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+}
+
+.findcard-profile__info-count {
+  font-family: "Inter";
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+}
+
+.librarycard_auth .findcard-form__btn {
+  display: none;
+}
+
+.findcard-form__btn {
+  margin-top: 20px;
+  padding: 9px 38px;
+  border-radius: 2px;
+  border: 1px solid var(--grey-black-russian);
+  background-color: transparent;
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  color: var(--grey-black-russian);
+  text-align: center;
+  cursor: pointer;
+}
+
+.findcard-form__btn:hover {
+  border-color: var(--yellow-barley-corn);
+  background-color: var(--yellow-barley-corn);
+}
+
+.librarycard__right-column {
+  text-align: right;
+}
+
+.librarycard_auth .getcard {
+  display: none;
+}
+
+.librarycard:not(:is(.librarycard_auth)) .visit-profile {
+  display: none;
+}
+
+.getcard__title,
+.visit-profile__title {
+  margin-bottom: 35px;
+  font-family: "Forum";
+  font-size: 30px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.6px;
+  color: var(--black);
+}
+
+.getcard__text,
+.visit-profile__text {
+  display: inline-block;
+  max-width: 456px;
+  margin-bottom: 34px;
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0.4px;
+  color: var(--black);
+}
+
+.getcard__btns {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 20px;
+}
+
+.getcard__btn-singup,
+.getcard__btn-login,
+.visit-profile__btn-profile {
+  width: 75px;
+  height: 30px;
+  border-radius: 2px;
+  border: 1px solid var(--grey-black-russian);
+  background-color: transparent;
+  font-family: "Inter";
+  font-size: 10px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  color: var(--grey-black-russian);
+  text-align: center;
+  cursor: pointer;
+}
+
+.visit-profile__btn-profile {
+  display: block;
+  margin-left: auto;
+}
+
+.getcard__btns button:hover {
+  border-color: var(--yellow-barley-corn);
+  background-color: var(--yellow-barley-corn);
+}
+
+/* FOOTER */
+
+.footer {
+  padding-top: 20px;
+  padding-bottom: 44px;
+  color: var(--white);
+  background-color: var(--grey-black-russian);
+}
+
+.footer__content {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 44px;
+  border-bottom: 1px solid var(--white);
+}
+
+.footer__address {
+  position: relative;
+  display: inline-block;
+  max-width: 229px;
+  margin-bottom: 18px;
+  font-family: "Inter";
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--white);
+}
+
+.footer__address:after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  height: 1px;
+  width: 0;
+  background: var(--grey-suva-grey);
+}
+
+.footer__address:hover:after {
+  width: 100%;
+  transition: width 0.5s ease 0s;
+}
+
+.footer__socials {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 36px;
+}
+
+.socials__item:hover {
+  transition: transform 0.3s ease 0s;
+  transform: scale(1.2);
+}
+
+.schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.schedule__work-days,
+.schedule__weekend {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: "Inter";
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--white);
+}
+
+.footer__footer {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+.footer__footer > * {
+  flex: 0 0 33%;
+}
+
+.footer__year {
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 2px;
+  color: var(--white);
+}
+
+.footer__rsschool-wrapper {
+  text-align: center;
+}
+
+.footer__github-wrapper {
+  text-align: right;
+}
+
+.footer__rsschool-link,
+.footer__github-link {
+  position: relative;
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 2px;
+  color: var(--white);
+}
+
+.footer__rsschool-link:after,
+.footer__github-link:after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  height: 2px;
+  width: 0;
+  transform: translateX(-50%);
+  background: var(--grey-suva-grey);
+}
+
+.footer__rsschool-link:hover:after,
+.footer__github-link:hover:after {
+  width: 90%;
+  transition: width 0.5s ease 0s;
+}
+
+/* MODALS */
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  overflow: auto;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--overlay);
+  z-index: 100;
+}
+
+.modal_show {
+  display: flex;
+}
+
+.modal-with-form__wrapper {
+  position: relative;
+  padding: 20px 25px;
+  background-color: var(--white);
+}
+
+.modal-with-form__title {
+  margin-bottom: 20px;
+  font-family: "Forum";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--black);
+}
+
+.modal-with-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-with-form form label {
+  font-family: "Inter";
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+
+.modal-with-form form label:last-of-type {
+  margin-bottom: 20px;
+}
+
+.modal-with-form form input {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 20px;
+  margin-top: 10px;
+  border: 1px solid var(--yellow-barley-corn);
+}
+
+.modal-with-form form button {
+  width: 75px;
+  height: 30px;
+  margin-bottom: 10px;
+  background-color: transparent;
+  border-radius: 2px;
+  border: 1px solid var(--grey-black-russian);
+  cursor: pointer;
+  font-family: "Inter";
+  font-size: 10px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-align: center;
+  color: var(--grey-black-russian);
+}
+
+.modal-with-form form button:hover {
+  border-color: var(--yellow-barley-corn);
+  background-color: var(--yellow-barley-corn);
+}
+
+.modal-with-form__footer {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  gap: 10px;
+}
+
+.modal-with-form__footer p {
+  font-family: "Inter";
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--black);
+}
+
+.modal-with-form__footer a {
+  font-family: "Inter";
+  font-size: 10px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-decoration-line: underline;
+  color: var(--grey-black-russian);
+}
+
+.modal-with-form__btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-register__wrapper {
+  width: 250px;
+  height: 382px;
+}
+
+.modal-login__wrapper {
+  width: 250px;
+  height: 262px;
+}
+
+.modal-profile__wrapper {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  background-color: var(--white);
+}
+
+.modal-profile__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 25px 20px;
+  color: var(--white);
+  background-color: var(--grey-black-russian);
+}
+
+.modal-profile__avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: var(--yellow-barley-corn);
+  background-color: var(--white);
+}
+
+.modal-profile__name {
+  min-width: 120px;
+  max-width: 130px;
+  padding: 5px;
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  text-transform: capitalize;
+  overflow-wrap: break-word;
+  color: var(--black);
+  background-color: var(--white);
+}
+
+.modal-profile__right {
+  padding: 40px 20px;
+  color: var(--black);
+  background-color: var(--white);
+}
+
+.modal-profile__title {
+  margin-bottom: 40px;
+  font-family: "Forum";
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.cards-profile__info {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.cards-profile__info-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.cards-profile__info-title {
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+}
+
+.cards-profile__info-count {
+  font-family: "Inter";
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+}
+
+.rented-books {
+  margin-bottom: 40px;
+}
+
+.rented-books__title {
+  margin-bottom: 30px;
+  font-family: "Inter";
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--grey-black-russian);
+}
+
+.rented-books__list {
+  width: 390px;
+  min-height: 50px;
+  max-height: 150px;
+  padding-left: 28px;
+  overflow: scroll;
+  list-style: disc;
+}
+
+.rented-books__item {
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+.rented-books__item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.modal-profile__card {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  gap: 15px;
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--grey-black-russian);
+}
+
+.modal-profile__card-number {
+  font-family: "Inter";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--yellow-barley-corn);
+}
+
+.modal-profile__card-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.modal-profile__close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-buy-card__wrapper {
+  position: relative;
+  width: 640px;
+  height: 540px;
+  background-color: var(--white);
+}
+
+.modal-buy-card__title {
+  padding: 20px;
+  font-family: "Forum";
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.8px;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--white);
+  background-color: var(--grey-black-russian);
+}
+
+.modal-buy-card__content {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+  padding: 30px 30px 40px 40px;
+}
+
+.buy-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.buy-form label:not(:last-of-type) {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.buy-form input {
+  height: 22px;
+  margin-top: 11px;
+  border: 1px solid var(--yellow-barley-corn);
+}
+
+.buy-form__card input[name="card-number"] {
+  width: 200px;
+}
+
+.buy-form__card-expiration {
+  display: flex;
+  gap: 10px;
+}
+
+.buy-form__card input[name^="expiration-"] {
+  width: 45px;
+}
+
+.buy-form__card input[name="cvc"] {
+  display: block;
+  width: 45px;
+}
+
+.buy-form__cardholder input {
+  width: 200px;
+}
+
+.modal-buy-card__buy-wrapper {
+  display: flex;
+  align-items: end;
+  gap: 25px;
+}
+
+.modal-buy-card__buy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75px;
+  height: 30px;
+  border: 1px solid var(--grey-black-russian);
+  border-radius: 2px;
+  background-color: transparent;
+  font-family: "Inter";
+  font-size: 10px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  color: var(--grey-black-russian);
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.modal-buy-card__buy:hover {
+  border-color: var(--yellow-barley-corn);
+  background-color: var(--yellow-barley-corn);
+}
+
+.modal-buy-card__price {
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 2px;
+  color: var(--grey-black-russian);
+}
+
+.modal-buy-card__right {
+  font-family: "Inter";
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 2px;
+  color: var(--grey-suva-grey);
+}
+
+.modal-buy-card__close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* ADAPTIVE */
+
+@media (max-width: 1024px) {
+  .header__nav {
+    order: 2;
+    margin-left: 0;
+  }
+
+  .header-nav_nojs .header-nav__toggle {
+    display: none;
+  }
+
+  .header-nav__toggle {
+    display: block;
+    z-index: 10;
+  }
+
+  .header-nav__list {
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 345px;
+    height: 570px;
+    padding: 90px 87px;
+    background-color: var(--black);
+    transition: all 1s ease 0s;
+  }
+
+  .header-nav_closed .header-nav__list {
+    top: -100%;
+    opacity: 0;
+  }
+
+  .header-nav_opened .header-nav__list {
+    top: 0;
+    opacity: 1;
+  }
+
+  .header__profile {
+    margin-left: auto;
+    z-index: 10;
+  }
+
+  .about-slider__wrapper {
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-slider__switches {
+    display: flex;
+    justify-content: center;
+    column-gap: 566px;
+  }
+
+  .about-slider__controls .about-slider__control {
+    display: block;
+  }
+
+  .about-slider__list {
+    margin-bottom: 20px;
+  }
+
+  .tabs__header {
+    position: sticky;
+    top: 0;
+    background-color: var(--white);
+    z-index: 1;
+  }
+
+  .season__books {
+    justify-content: center;
+  }
+
+  .menu-category_right {
+    margin-left: auto;
+  }
+
+  .contacts__content {
+    grid-template-columns: 1fr;
+  }
+
+  .map {
+    margin: 0 auto;
+  }
+
+  .librarycard__content {
+    justify-content: center;
+  }
+
+  .librarycard__right-column {
+    text-align: center;
+  }
+
+  .getcard__title,
+  .visit-profile__title {
+    margin-bottom: 40px;
+  }
+
+  .getcard__text,
+  .visit-profile__text {
+    max-width: 600px;
+    margin-bottom: 40px;
+  }
+
+  .getcard__btns {
+    justify-content: center;
+  }
+
+  .visit-profile__btn-profile {
+    margin-right: auto;
+  }
+
+  .footer__footer > * {
+    flex-basis: auto;
+  }
+}
+
+.fade-in {
+  animation: fadeIn ease 1s;
+}
+
+.fade-out {
+  animation: fadeOut ease 1s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
